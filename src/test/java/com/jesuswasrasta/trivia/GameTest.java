@@ -2,7 +2,9 @@ package com.jesuswasrasta.trivia;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 
+import com.jesuswasrasta.trivia.runner.GameRunner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +32,15 @@ class GameTest {
 
         assertEquals(String.format("Nando was added%1$sThey are player number 1%1$s", System.getProperty("line.separator")), stream.toString());
     }
+
+    @Test
+    void name() {
+        GameRunner gameRunner = new GameRunner();
+        gameRunner.main(new String[0]);
+
+        assertEquals("", stream.toString());
+    }
+
 
     private ByteArrayOutputStream getOutputStream() {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
