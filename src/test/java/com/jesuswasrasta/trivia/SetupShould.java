@@ -9,10 +9,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SetupShould {
+    ByteArrayOutputStream stream;
+
+    @BeforeEach
+    void beforeEach(){
+        stream = getOutputStream();
+    }
+
     @Test
     void whenAGameIsCreatedNothingHappens() {
-        ByteArrayOutputStream stream = getOutputStream();
-
         Game game = new Game();
 
         assertEquals("", stream.toString());
@@ -20,8 +25,6 @@ class SetupShould {
 
     @Test
     void whenAddPlayerNameAndNumberArePrinted() {
-        ByteArrayOutputStream stream = getOutputStream();
-
         Game game = new Game();
         game.add("Nando");
 
