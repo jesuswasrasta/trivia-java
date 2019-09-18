@@ -21,14 +21,15 @@ class SetupShould {
     }
 
     @Test
-    void test() {
+    void whenAddPlayerNameAndNumberArePrinted() {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(stream);
         System.setOut(printStream);
 
         Game game = new Game();
-        game.add("nando");
+        game.add("Nando");
 
-        assertEquals("", stream.toString());
+        assertEquals("Nando was added" + System.getProperty("line.separator") +
+                "They are player number 1" + System.getProperty("line.separator"), stream.toString());
     }
 }
