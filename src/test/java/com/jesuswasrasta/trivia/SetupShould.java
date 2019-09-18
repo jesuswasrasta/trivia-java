@@ -29,7 +29,6 @@ class SetupShould {
         Game game = new Game();
         game.add("Nando");
 
-        assertEquals("Nando was added" + System.getProperty("line.separator") +
-                "They are player number 1" + System.getProperty("line.separator"), stream.toString());
+        assertEquals(String.format("Nando was added%1$sThey are player number 1%1$s", System.getProperty("line.separator")), stream.toString());
     }
 }
