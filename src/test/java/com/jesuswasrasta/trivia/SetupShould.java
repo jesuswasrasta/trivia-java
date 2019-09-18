@@ -19,4 +19,16 @@ class SetupShould {
 
         assertEquals("", stream.toString());
     }
+
+    @Test
+    void test() {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(stream);
+        System.setOut(printStream);
+
+        Game game = new Game();
+        game.add("nando");
+
+        assertEquals("", stream.toString());
+    }
 }
