@@ -10,13 +10,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SetupShould {
 
     @Test
-    public void test() throws Exception {
+    public void whenAGameIsCreatedNothingHappens() throws Exception {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(stream);
         System.setOut(printStream);
 
         Game game = new Game();
 
-        assertEquals(null, stream.toString());
+        assertEquals("", stream.toString());
     }
 }
