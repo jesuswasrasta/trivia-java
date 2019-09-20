@@ -22,8 +22,9 @@ public class ApprovalTest {
     }
 
     @Test
-    @UseReporter(DiffReporter.class)
-    public void gameTest() {
+//    @UseReporter(JunitReporter.class) //Don't need to specify it here, as it is specified as default class reporter
+    public void gameTestWithJUnitReporter() {
+        //Hint: run the test, see it failing in console, rename `received` file in `approved` by hand
         Random random = new Random(0);
         GameRunner gameRunner = new GameRunner();
         gameRunner.play(random);
