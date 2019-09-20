@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.jesuswasrasta.trivia.runner.GameRunner;
 import org.approvaltests.Approvals;
+import org.approvaltests.reporters.ClipboardReporter;
 import org.approvaltests.reporters.DiffReporter;
 import org.approvaltests.reporters.JunitReporter;
 import org.approvaltests.reporters.QuietReporter;
@@ -63,6 +64,21 @@ public class ApprovalTest {
          * TortoiseDiff
          * WinMerge
          */
+        Random random = new Random(0);
+        GameRunner gameRunner = new GameRunner();
+        gameRunner.play(random);
+        Approvals.verify(stream.toString());
+    }
+
+
+    @Test
+    @UseReporter(ClipboardReporter.class)
+    public void gameTestWithClipboardReporter() {
+        // The ClipboardReporter copies to the clipboard the `move` command you need to run to rename `received` file to `approved` one.
+        //
+        // Directions:
+        // 1) Run the test
+        // 2) The Open a command line (terminal), and paste the move command from your clipboard
         Random random = new Random(0);
         GameRunner gameRunner = new GameRunner();
         gameRunner.play(random);
