@@ -33,6 +33,18 @@ public class ApprovalTest {
     }
 
     @Test
+    @UseReporter(QuietReporter.class)
+    public void gameTestWithQuietReporter() {
+        // Directions:
+        // 1) Run the test
+        // 2) Manually rename The .received. File to .approved.
+        Random random = new Random(0);
+        GameRunner gameRunner = new GameRunner();
+        gameRunner.play(random);
+        Approvals.verify(stream.toString());
+    }
+
+    @Test
     @UseReporter(DiffReporter.class)
     public void gameTestWithDiffReporter() {
         // Directions:
