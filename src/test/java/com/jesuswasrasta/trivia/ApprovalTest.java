@@ -8,6 +8,7 @@ import com.jesuswasrasta.trivia.runner.GameRunner;
 import org.approvaltests.Approvals;
 import org.approvaltests.reporters.ClipboardReporter;
 import org.approvaltests.reporters.DiffReporter;
+import org.approvaltests.reporters.FileLauncherReporter;
 import org.approvaltests.reporters.JunitReporter;
 import org.approvaltests.reporters.QuietReporter;
 import org.approvaltests.reporters.UseReporter;
@@ -70,7 +71,6 @@ public class ApprovalTest {
         Approvals.verify(stream.toString());
     }
 
-
     @Test
     @UseReporter(ClipboardReporter.class)
     public void gameTestWithClipboardReporter() {
@@ -84,6 +84,21 @@ public class ApprovalTest {
         gameRunner.play(random);
         Approvals.verify(stream.toString());
     }
+
+    @Test
+    @UseReporter(FileLauncherReporter.class)
+    public void gameTestWithFileLauncherReporter() {
+        // The FileLauncherReporter opens `received` file into default text editor
+        //
+        // Directions:
+        // 1) Run the test
+        // 2) Save the launched file as `approved`
+        Random random = new Random(0);
+        GameRunner gameRunner = new GameRunner();
+        gameRunner.play(random);
+        Approvals.verify(stream.toString());
+    }
+
 
 
 
