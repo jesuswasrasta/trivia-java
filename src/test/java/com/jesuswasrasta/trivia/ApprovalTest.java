@@ -6,19 +6,24 @@ import java.util.Random;
 
 import com.jesuswasrasta.trivia.runner.GameRunner;
 import org.approvaltests.Approvals;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.approvaltests.reporters.DiffReporter;
+import org.approvaltests.reporters.JunitReporter;
+import org.approvaltests.reporters.UseReporter;
+import org.junit.Before;
+import org.junit.Test;
 
+@UseReporter(JunitReporter.class)
 public class ApprovalTest {
     private ByteArrayOutputStream stream;
 
-    @BeforeEach
-    void beforeEach(){
+    @Before
+    public void beforeEach(){
         stream = getOutputStream();
     }
 
     @Test
-    void gameTest() {
+    @UseReporter(DiffReporter.class)
+    public void gameTest() {
         Random random = new Random(0);
         GameRunner gameRunner = new GameRunner();
         gameRunner.play(random);
