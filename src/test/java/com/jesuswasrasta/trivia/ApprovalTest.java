@@ -87,7 +87,7 @@ public class ApprovalTest {
 
     @Test
     @UseReporter(FileLauncherReporter.class)
-    public void gameTestWithFileLauncherReporterr() {
+    public void gameTestWithFileLauncherReporter() {
         // The FileLauncherReporter opens `received` file into default text editor
         //
         // Directions:
