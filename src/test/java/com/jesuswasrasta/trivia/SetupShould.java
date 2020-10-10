@@ -9,8 +9,5 @@ public class SetupShould {
     @Test
     public void beFine() throws Exception {
         assertTrue(true);
-
-        Game g = new Game();
-
     }
 }
