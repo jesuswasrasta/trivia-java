@@ -78,7 +78,7 @@ public class ApprovalTest {
         //
         // Directions:
         // 1) Run the test
-        // 2) The Open a command line (terminal), and paste the move command from your clipboard
+        // 2) Then open a command line (terminal), and paste the move command from your clipboard
         Random random = new Random(0);
         GameRunner gameRunner = new GameRunner();
         gameRunner.play(random);
