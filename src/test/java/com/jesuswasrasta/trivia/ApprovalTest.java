@@ -12,6 +12,7 @@ import org.approvaltests.reporters.FileLauncherReporter;
 import org.approvaltests.reporters.JunitReporter;
 import org.approvaltests.reporters.QuietReporter;
 import org.approvaltests.reporters.UseReporter;
+import org.approvaltests.reporters.intellij.IntelliJReporter;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -99,7 +100,17 @@ public class ApprovalTest {
         Approvals.verify(stream.toString());
     }
 
-
+    @Test
+    @UseReporter(IntelliJReporter.class)
+    public void gameTestWithIntelliJReporter() {
+        // Directions:
+        // Run it in IntelliJ. It will report test results in the test output toolbox.
+        // You can then compare the files by hand.
+        Random random = new Random(0);
+        GameRunner gameRunner = new GameRunner();
+        gameRunner.play(random);
+        Approvals.verify(stream.toString());
+    }
 
 
     private ByteArrayOutputStream getOutputStream() {
