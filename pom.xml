@@ -8,6 +8,13 @@
 
     <name>com.jesuswasrasta trivia</name>
 
+    <repositories>
+        <repository>
+            <id>mvnrepository</id>
+            <url>https://mvnrepository.com/</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.8.1</junit.version>
@@ -53,7 +60,7 @@
         <dependency>
             <groupId>com.approvaltests</groupId>
             <artifactId>approvaltests</artifactId>
-            <version>12.1.1</version>
+            <version>18.7.1</version>
             <scope>test</scope>
         </dependency>
 
@@ -71,12 +78,22 @@
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
-            <version>3.2.0</version>
+            <version>3.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
+            <version>3.10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>3.0.0-M7</version>
         </dependency>
     </dependencies>
 
@@ -85,29 +102,28 @@
         <testSourceDirectory>src/test/java</testSourceDirectory>
 
         <plugins>
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+            <!-- Parameters: https://maven.apache.org/surefire/maven-surefire-plugin/test-mojo.html -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.junit.platform</groupId>
-                        <artifactId>junit-platform-surefire-provider</artifactId>
-                        <version>1.3.2</version>
-                    </dependency>
-                </dependencies>
+                <version>3.0.0-M5</version>
                 <configuration>
-<!--                    <skipTests>${skip.test}</skipTests>-->
-<!--                    <argLine>${argLine} -Xms256m -Xmx2048m</argLine>-->
+                    <parallel>classes</parallel>
+                    <useUnlimitedThreads>false</useUnlimitedThreads>
+                    <perCoreThreadCount>true</perCoreThreadCount>
                     <forkCount>1</forkCount>
-                    <runOrder>random</runOrder>
+                    <threadCount>2</threadCount>
+                    <rerunFailingTestsCount>0</rerunFailingTestsCount>
+                    <parallelTestsTimeoutForcedInSeconds>7200</parallelTestsTimeoutForcedInSeconds>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.0.0-M5</version>
                 <executions>
                     <execution>
                         <goals>
