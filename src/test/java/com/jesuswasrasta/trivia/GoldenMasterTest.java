@@ -1,11 +1,11 @@
 package com.jesuswasrasta.trivia;
 
-import java.io.IOException;
-
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.io.IOException;
+
+import static com.jesuswasrasta.trivia.StringAssertions.assertLinesEqual;
 
 class GoldenMasterTest {
     @Test
@@ -23,7 +23,7 @@ class GoldenMasterTest {
             String expected = goldenMaster.getGoldenMasterBySeed(seed);
             String actual = goldenMaster.getGameResult(seed);
 
-            assertEquals(expected, actual);
+            assertLinesEqual(expected, actual);
         }
     }
 }
