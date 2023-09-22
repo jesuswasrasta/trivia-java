@@ -6,6 +6,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
 
+/**
+ * Custom assertion for text lines.
+ * Just a dumb trick to avoid line endings test failures... 😅
+ */
 public class StringAssertions {
     public static void assertLinesEqual(String expectedString, String actualString){
         BufferedReader expectedLinesReader = new BufferedReader(new StringReader(expectedString));

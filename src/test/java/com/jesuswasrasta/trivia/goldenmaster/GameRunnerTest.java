@@ -1,4 +1,4 @@
-package com.jesuswasrasta.trivia;
+package com.jesuswasrasta.trivia.goldenmaster;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

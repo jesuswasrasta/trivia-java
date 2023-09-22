@@ -1,4 +1,4 @@
-package com.jesuswasrasta.trivia;
+package com.jesuswasrasta.trivia.approvals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -17,7 +17,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 @UseReporter(JunitReporter.class)
-public class ApprovalTest {
+public class ApprovalTestExamples {
     private ByteArrayOutputStream stream;
 
     @Before

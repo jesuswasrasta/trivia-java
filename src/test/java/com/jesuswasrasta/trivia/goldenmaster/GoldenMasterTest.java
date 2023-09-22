@@ -1,4 +1,4 @@
-package com.jesuswasrasta.trivia;
+package com.jesuswasrasta.trivia.goldenmaster;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
