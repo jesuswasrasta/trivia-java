@@ -23,12 +23,6 @@ public class GameRunnerApprovalTests {
      */
     static final int MAX_SEED = 1000;
 
-    private static void call(Long s) {
-        GameRunner gameRunner = new GameRunner();
-        Random random = new Random((Long) s);
-        gameRunner.play(random);
-    }
-
     @Before
     public void beforeEach(){
         stream = getOutputStream();
@@ -43,18 +37,6 @@ public class GameRunnerApprovalTests {
 
         Approvals.verify(stream.toString());
     }
-
-//    nando: can't manage to get this work :|
-//    @ParameterizedTest
-//    @MethodSource("range")
-//    @UseReporter(FileLauncherReporter.class)
-//    public void GameRunnerTestWithSeeds(int seed) {
-//        Random random = new Random(seed);
-//        GameRunner gameRunner = new GameRunner();
-//        gameRunner.play(random);
-//
-//        Approvals.verify(stream.toString(), Approvals.NAMES.withParameters(String.valueOf(seed)));
-//    }
 
     @Test
     @UseReporter(DiffReporter.class)
